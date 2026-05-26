@@ -22,3 +22,8 @@ output "internet_gateway_id" {
 output "public_route_table_id" {
   value = aws_route_table.public_rt.id
 }
+
+#SECURITY GROUP OUTPUT 
+output "security_group_id" {
+  value = aws_security_group.jenkins_sg.id
+}
