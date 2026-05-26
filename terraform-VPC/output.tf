@@ -19,6 +19,6 @@ output "internet_gateway_id" {
 }
 
 #ROUTE TABLE
-variable "public_route_table_name" {
-  default = "public-route-table"
+output "public_route_table_id" {
+  value = aws_route_table.public_rt.id
 }
