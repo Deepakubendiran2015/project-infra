@@ -25,3 +25,8 @@ variable "igw_name" {
 variable "public_route_table_name" {
   default = "public-route-table"
 }
+
+#SECURITY GROUP VARIABLE
+variable "security_group_name" {
+  default = "jenkins-security-group"
+}
