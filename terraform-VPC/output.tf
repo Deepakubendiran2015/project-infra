@@ -17,3 +17,8 @@ output "private_subnet_id" {
 output "internet_gateway_id" {
   value = aws_internet_gateway.igw.id
 }
+
+#ROUTE TABLE
+variable "public_route_table_name" {
+  default = "public-route-table"
+}
