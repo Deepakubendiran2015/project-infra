@@ -1,4 +1,4 @@
-#AWS provider
+#AWS PROVIDER
 provider "aws" {
   region = "ap-south-1"
 }
@@ -26,7 +26,7 @@ resource "aws_subnet" "public_subnet" {
   }
 }
 
-#private subnet
+#PRIVATE SUBNET
 resource "aws_subnet" "private_subnet" {
   vpc_id            = aws_vpc.main.id
   cidr_block        = var.private_subnet_cidr
@@ -37,7 +37,7 @@ resource "aws_subnet" "private_subnet" {
   }
 }
 
-#Internet Gateway
+#INTERNET GATWAY
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.main.id
 
@@ -46,3 +46,11 @@ resource "aws_internet_gateway" "igw" {
   }
 }
 
+#ROUTE TABLE
+resource "aws_route_table" "public_rt" {
+  vpc_id = aws_vpc.main.id
+
+  tags = {
+    Name = "public-route-table"
+  }
+}
