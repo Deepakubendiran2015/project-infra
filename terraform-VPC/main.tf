@@ -54,3 +54,16 @@ resource "aws_route_table" "public_rt" {
     Name = "public-route-table"
   }
 }
+
+#PUBLIC INTERNET ROUTE
+resource "aws_route" "public_internet_route" {
+  route_table_id         = aws_route_table.public_rt.id
+  destination_cidr_block = "0.0.0.0/0"
+  gateway_id             = aws_internet_gateway.igw.id
+}
+
+#ASSOCIATE ROUTE TABLE WITH PUBLIC SUBNET
+resource "aws_route_table_association" "public_assoc" {
+  subnet_id      = aws_subnet.public_subnet.id
+  route_table_id = aws_route_table.public_rt.id
+}
